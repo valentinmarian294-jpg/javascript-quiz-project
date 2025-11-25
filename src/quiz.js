@@ -37,4 +37,25 @@ class Quiz {
       return true;
     }
   }
-}
+  filterQuestionsByDifficulty(difficulty){
+     if (typeof difficulty !== 'number' || difficulty < 1 || difficulty > 3){
+      return;
+    }
+     this.questions = this.questions.filter(question => question.difficulty === difficulty);
+  }
+  averageDifficulty(){
+  const selectedQuestions = this.questions.filter(
+      (question) => typeof question.difficulty === "number"
+    );
+    const totalDifficulty = selectedQuestions.reduce(
+      (acc, question) => acc + question.difficulty,
+      0
+    );
+    if (selectedQuestions.length > 0) {
+      return totalDifficulty / selectedQuestions.length;
+    } else {
+      return 0;
+    }
+  }
+  }
+   

@@ -13,5 +13,6 @@ class Question {
         this.choices[i] = this.choices[j];
         this.choices[j] = temp;
     }
+    
 }
 }
