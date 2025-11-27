@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // View divs
   const quizView = document.querySelector("#quizView");
   const endView = document.querySelector("#endView");
-
   // Quiz view elements
   const progressBar = document.querySelector("#progressBar");
   const questionCount = document.querySelector("#questionCount");
@@ -12,15 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector("#nextButton");
   // End view elements
   const resultContainer = document.querySelector("#result");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   /************  SET VISIBILITY OF VIEWS  ************/
-
   // Show the quiz view (div#quizView) and hide the end view (div#endView)
   quizView.style.display = "block";
   endView.style.display = "none";
+<<<<<<< HEAD
 
   /************  QUIZ DATA  ************/
 
+=======
+  /************  QUIZ DATA  ************/
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   // Array with the quiz questions
   const questions = [
     new Question("What is 2 + 2?", ["3", "4", "5", "6"], "4", 1),
@@ -46,28 +51,34 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   const quizDuration = 120; // 120 seconds (2 minutes)
   /************  QUIZ INSTANCE  ************/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   // Create a new Quiz instance object
   const quiz = new Quiz(questions, quizDuration, quizDuration);
   // Shuffle the quiz questions
   quiz.shuffleQuestions();
   showQuestion();
   startTimer();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   /************  SHOW INITIAL CONTENT  ************/
-
   // Convert the time remaining in seconds to minutes and seconds, and pad the numbers with zeros if needed
   const minutes = Math.floor(quiz.timeRemaining / 60)
     .toString()
     .padStart(2, "0");
   const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
-
   // Display the time remaining in the time remaining container
   const timeRemainingContainer = document.getElementById("timeRemaining");
   timeRemainingContainer.innerText = `${minutes}:${seconds}`;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   /************  TIMER  ************/
-
   let timer;
   function startTimer() {
      quiz.timeRemaining = quizDuration;
@@ -79,17 +90,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   /************  EVENT LISTENERS  ************/
-
   nextButton.addEventListener("click", nextButtonHandler);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   /************  FUNCTIONS  ************/
-
   // showQuestion() - Displays the current question and its choices
   // nextButtonHandler() - Handles the click on the next button
   // showResults() - Displays the end view and the quiz results
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   function showQuestion() {
     // If the quiz has ended, show the results
     if (quiz.hasEnded()) {
@@ -97,26 +115,31 @@ document.addEventListener("DOMContentLoaded", () => {
       startTimer()
       return;
     }
-
     // Clear the previous question text and question choices
     questionContainer.innerText = "";
     choiceContainer.innerHTML = "";
-
     // Get the current question from the quiz by calling the Quiz class method `getQuestion()`
     const question = quiz.getQuestion();
     // Shuffle the choices of the current question by calling the method 'shuffleChoices()' on the question object
     question.shuffleChoices();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
     // YOUR CODE HERE:
     //
     // 1. Show the question
     // Update the inner text of the question container element and show the question text
     questionContainer.innerText = question.text;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
     // 2. Update the green progress bar
     progressBar.style.width = `${
       (quiz.currentQuestionIndex / questions.length) * 100
     }%`; // This value is hardcoded as a placeholder
+<<<<<<< HEAD
 
     // 3. Update the question count text
     // Update the question count (div#questionCount) show the current question out of total questions
@@ -125,6 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
       questions.length
     }`; //  This value is hardcoded as a placeholder
 
+=======
+    // 3. Update the question count text
+    // Update the question count (div#questionCount) show the current question out of total questions
+    questionCount.innerText = `Question ${quiz.currentQuestionIndex + 1} of ${
+      questions.length
+    }`; //  This value is hardcoded as a placeholder
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
     // 4. Create and display new radio input element with a label for each choice.
     // Loop through the current question `choices`.
     // For each choice create a new radio input with a label, and append it to the choice container.
@@ -138,7 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hint 2: You can use the `element.type`, `element.name`, and `element.value` properties to set the type, name, and value of an element.
     // Hint 3: You can use the `element.appendChild()` method to append an element to the choices container.
     // Hint 4: You can use the `element.innerText` property to set the inner text of an element.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
     question.choices.forEach((choice) => {
       const element = document.createElement("input");
       element.type = "radio";
@@ -146,22 +179,33 @@ document.addEventListener("DOMContentLoaded", () => {
       element.value = choice;
       const label = document.createElement("label");
       label.innerText = choice;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
       const br = document.createElement("br");
       choiceContainer.appendChild(element);
       choiceContainer.appendChild(label);
       choiceContainer.appendChild(br);
     });
   }
+<<<<<<< HEAD
 
   function nextButtonHandler() {
     let selectedAnswer; // A variable to store the selected answer value
 
+=======
+  function nextButtonHandler() {
+    let selectedAnswer; // A variable to store the selected answer value
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
     // YOUR CODE HERE:
     //
     // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
     const allChoices = document.querySelectorAll('input[name="choice"]');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
     // 2. Loop through all the choice elements and check which one is selected
     // Hint: Radio input elements have a property `.checked` (e.g., `element.checked`).
     //  When a radio input gets selected the `.checked` property will be set to true.
@@ -181,15 +225,18 @@ document.addEventListener("DOMContentLoaded", () => {
       showQuestion();
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
   function showResults() {
     // YOUR CODE HERE:
     //
     // 1. Hide the quiz view (div#quizView)
     quizView.style.display = "none";
-
     // 2. Show the end view (div#endView)
     endView.style.display = "flex";
+<<<<<<< HEAD
 
     // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
     resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${quiz.questions.length} correct answers!`; // This value is hardcoded as a placeholder
@@ -211,3 +258,19 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer()
   });
 });
+=======
+    // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
+    resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${quiz.questions.length} correct answers!`; // This value is hardcoded as a placeholder
+  }
+  // Implement a "Restart Quiz" button:
+  restartButton.addEventListener("click", () => {
+    endView.style.display = "none";
+    quizView.style.display = "flex";
+    quiz.currentQuestionIndex = 0;
+    quiz.score = 0;
+    quiz.shuffleQuestions();
+    showQuestion();
+    startTimer()
+  });
+});
+>>>>>>> 311a1b7734a6ea61227793b654d97e505f3922b6
